@@ -4,7 +4,7 @@ export function parseCSVValues(values: RawCSVHeaders[]): ParsedCSVHeaders[] {
     return values.map((value) => ({...parseCSVValue(value)}));
 }
 
-export function parseCSVValue(value: RawCSVHeaders): ParsedCSVHeaders{
+function parseCSVValue(value: RawCSVHeaders): ParsedCSVHeaders{
     return {
         id: value.id,
         name: value.name,
