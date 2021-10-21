@@ -3,16 +3,18 @@
 import { createReadStream } from "fs";
 import { parse } from "fast-csv"; 
 import { resolve as pathResolve } from "path";
+import { RawCSVHeaders } from "./types/csv.types";
 const clear = require('clear');
 
 async function main() {
     clearConsole();
     const output = await csvImport();
+    console.log("output", output[1]);
 }
 
-function csvImport() {
+function csvImport(): Promise<RawCSVHeaders[]> {
 
-    const csvValues: any[] = [];
+    const csvValues: RawCSVHeaders[] = [];
 
     return new Promise((resolve, reject) => {
         createReadStream(pathResolve(__dirname, '../assets', 'parse.csv'), 'utf8')
