@@ -17,6 +17,7 @@
   },
   "dependencies": {
     "clear": "^0.1.0",
+    "csv-writer": "^1.6.0",
     "fast-csv": "^4.3.6",
     "geojson": "^0.5.0"
   }
