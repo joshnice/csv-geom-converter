@@ -9,7 +9,7 @@ function mutateGeojsonValue(value: ParsedCSVHeaders): StringCSVHeaders {
     return {
         id: value.id,
         name: value.name,
-        bounds: convertBounds(value.bounds),
+        bounds: value.bounds != null ? convertBounds(value.bounds) : null,
         geom: convertGeom(value.geom),
         address: value.address,
         siteid: value.siteid,

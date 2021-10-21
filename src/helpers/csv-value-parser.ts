@@ -1,3 +1,4 @@
+import { Polygon } from "geojson";
 import { ParsedCSVHeaders, StringCSVHeaders } from "../types/csv.types";
 
 export function parseCSVValues(values: StringCSVHeaders[]): ParsedCSVHeaders[] {
@@ -5,12 +6,20 @@ export function parseCSVValues(values: StringCSVHeaders[]): ParsedCSVHeaders[] {
 }
 
 function parseCSVValue(value: StringCSVHeaders): ParsedCSVHeaders{
+    console.log("value", value);
     return {
         id: value.id,
         name: value.name,
-        bounds: JSON.parse(value.bounds),
+        bounds: parseBounds(value.bounds),
         geom: JSON.parse(value.geom),
         address: value.address,
         siteid: value.siteid,
     }
+}
+
+function parseBounds(bounds: string | null): null | Polygon {
+    if (bounds === "" || bounds == null) {
+        return null;
+    }
+    return JSON.parse(bounds);
 }
