@@ -1,10 +1,10 @@
-import { ParsedCSVHeaders, RawCSVHeaders } from "../types/csv.types";
+import { ParsedCSVHeaders, StringCSVHeaders } from "../types/csv.types";
 
-export function parseCSVValues(values: RawCSVHeaders[]): ParsedCSVHeaders[] {
+export function parseCSVValues(values: StringCSVHeaders[]): ParsedCSVHeaders[] {
     return values.map((value) => ({...parseCSVValue(value)}));
 }
 
-function parseCSVValue(value: RawCSVHeaders): ParsedCSVHeaders{
+function parseCSVValue(value: StringCSVHeaders): ParsedCSVHeaders{
     return {
         id: value.id,
         name: value.name,

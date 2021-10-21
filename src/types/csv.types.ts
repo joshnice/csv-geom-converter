@@ -1,6 +1,6 @@
 import { Point, Polygon } from "geojson";
 
-export interface RawCSVHeaders {
+export interface StringCSVHeaders {
     id: string;
     name: string;
     bounds: string;
