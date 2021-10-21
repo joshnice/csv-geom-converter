@@ -1,7 +1,5 @@
 #!/usr/bin/env node
 
-main();
+import main from "./index";
 
-function main() {
-    console.log("hello world");
-}
+main();
