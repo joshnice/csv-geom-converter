@@ -7,6 +7,7 @@ import { StringCSVHeaders } from "./types/csv.types";
 import { parseCSVValues } from "./helpers/csv-value-parser";
 import { mutateGeojsonValues } from "./helpers/geojson-to-string-convert";
 import { createObjectCsvWriter } from "csv-writer";
+import { errorHelperFunction } from "./helpers/error";
 
 const clear = require('clear');
 
@@ -53,8 +54,8 @@ function writeCSV(csvValues: StringCSVHeaders[]) {
             console.log('Export CSV');
             resolve();
         })
-        .catch(() => {
-            reject();
+        .catch((err) => {
+            errorHelperFunction(err, reject);
         })
     });
  };
