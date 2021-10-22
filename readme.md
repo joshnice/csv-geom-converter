@@ -1,4 +1,4 @@
-# Basic CLI Application
+# CSV Geom Converter
 
 ## Build and Run Using 
 npm start
