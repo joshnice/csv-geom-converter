@@ -7,7 +7,6 @@ export function parseCSVValues(values: StringCSVHeaders[]): ParsedCSVHeaders[] {
 
 function parseCSVValue(value: StringCSVHeaders): ParsedCSVHeaders{
     return {
-        id: value.id,
         name: value.name,
         bounds: parseBounds(value.bounds),
         geom: JSON.parse(value.geom),

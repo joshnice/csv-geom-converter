@@ -7,7 +7,6 @@ export function mutateGeojsonValues(values: ParsedCSVHeaders[]): StringCSVHeader
 
 function mutateGeojsonValue(value: ParsedCSVHeaders): StringCSVHeaders {
     return {
-        id: value.id,
         name: value.name,
         bounds: value.bounds != null ? convertBounds(value.bounds) : null,
         geom: convertGeom(value.geom),

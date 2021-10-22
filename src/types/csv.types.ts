@@ -1,7 +1,6 @@
 import { Point, Polygon } from "geojson";
 
 export interface StringCSVHeaders {
-    id: string;
     name: string;
     bounds: string | null;
     geom: string;
@@ -10,7 +9,6 @@ export interface StringCSVHeaders {
 }
 
 export interface ParsedCSVHeaders {
-    id: string;
     name: string;
     bounds: Polygon | null;
     geom: Point;

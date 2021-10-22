@@ -39,7 +39,6 @@ function writeCSV(csvValues: StringCSVHeaders[]) {
     const csvWriter = createObjectCsvWriter({ 
         path: pathResolve(__dirname, '../assets', 'parsed.csv'),
         header: [
-            {id: "id", title: "id"},
             {id: "name", title: "name"},
             {id: "geom", title: "geom"},
             {id: "bounds", title: "bounds"},
