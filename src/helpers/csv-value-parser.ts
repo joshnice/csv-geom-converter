@@ -6,7 +6,6 @@ export function parseCSVValues(values: StringCSVHeaders[]): ParsedCSVHeaders[] {
 }
 
 function parseCSVValue(value: StringCSVHeaders): ParsedCSVHeaders{
-    console.log("value", value);
     return {
         id: value.id,
         name: value.name,
