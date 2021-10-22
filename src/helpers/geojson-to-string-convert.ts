@@ -19,7 +19,7 @@ function mutateGeojsonValue(value: ParsedCSVHeaders): StringCSVHeaders {
 function convertBounds(bounds: Polygon): string {
     const coordinates = bounds.coordinates[0];
     const coordinates_pairs = coordinates.map(coordinate => coordinate.join(" "));
-    return `POLYGON (( ${coordinates_pairs.join(",")} ))`;
+    return `SRID= 4326; POLYGON (( ${coordinates_pairs.join(",")} ))`;
 }
 
 function convertGeom(geom: Point): string {
