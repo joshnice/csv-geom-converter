@@ -16,7 +16,7 @@ async function main() {
     const importedData = await csvImport();
     const parsedImportedData = parseCSVValues(importedData);
     const mutatedGeomValues = mutateGeojsonValues(parsedImportedData);
-    await writeCSV(mutatedGeomValues);
+    writeCSV(mutatedGeomValues);
 }
 
 function csvImport(): Promise<StringCSVHeaders[]> {
@@ -36,7 +36,7 @@ function csvImport(): Promise<StringCSVHeaders[]> {
     
 }
 
-function writeCSV(csvValues: StringCSVHeaders[]) {
+async function writeCSV(csvValues: StringCSVHeaders[]) {
     const csvWriter = createObjectCsvWriter({ 
         path: pathResolve(__dirname, '../assets', 'parsed.csv'),
         header: [
@@ -47,17 +47,8 @@ function writeCSV(csvValues: StringCSVHeaders[]) {
             {id: "siteid", title: "siteid"},
         ],
     });
-
-    return new Promise<void>((resolve, reject) => {
-        csvWriter.writeRecords(csvValues)
-        .then(() => {
-            console.log('Export CSV');
-            resolve();
-        })
-        .catch((err) => {
-            errorHelperFunction(err, reject);
-        })
-    });
+    
+    await csvWriter.writeRecords(csvValues);
  };
 
 
